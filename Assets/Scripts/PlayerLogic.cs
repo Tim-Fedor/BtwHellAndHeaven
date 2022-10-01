@@ -12,11 +12,19 @@ public class PlayerLogic : MonoBehaviour {
 
     public void GetHit(int damage) {
         currentHealth -= damage;
-        EventSystemService.Instance.DispatchEvent(EventConstants.PLAYER_HIT, new object[]{currentHealth});
+        EventSystemService.Instance.DispatchEvent(EventConstants.PLAYER_UPDATE_HEALTH, new object[]{currentHealth});
         if (currentHealth <= 0) {
             EventSystemService.Instance.DispatchEvent(EventConstants.GAME_OVER);
             Time.timeScale = 0;
         }
         
+    }
+
+    public void GetHealth(int health) {
+        currentHealth += health;
+        if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
+        }
+        EventSystemService.Instance.DispatchEvent(EventConstants.PLAYER_UPDATE_HEALTH, new object[]{currentHealth});
     }
 }

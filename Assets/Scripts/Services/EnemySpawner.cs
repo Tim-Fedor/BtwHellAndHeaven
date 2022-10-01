@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour {
-    [SerializeField] 
-    private GameObject _enemyPrefab;
-    [SerializeField] 
-    private List<Transform> _enemySpawnPoints;
-    
-    public int currentNumOfEnemy = 5;
-    void Start()
-    {
-        EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, ChangeWorld);
-        SpawnEnemy();
+public class EnemySpawner : SpawnerBase {
+
+    void Start() {
+        currentNumOfSpawn = 5;
+        parentWorld = SwitchController.WorldName.HELL;
+        EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangeWorld);
+        SpawnEntity();
     }
 
-    private void ChangeWorld(object[] data) {
-        if (data != null && data.Length > 0 && data[0] is SwitchController.WorldName.HELL) {
-            SpawnEnemy();
-        }
+    protected override void SpawnEntity() {
+        StartCoroutine(SpawnWithDelay());
     }
 
-    private void SpawnEnemy() {
-        for (int i = 0; i < currentNumOfEnemy; i++) {
-            Instantiate(_enemyPrefab, _enemySpawnPoints[Random.Range(0, _enemySpawnPoints.Count)]);
+    private IEnumerator SpawnWithDelay() {
+        for (int i = 0; i < currentNumOfSpawn; i++) {
+            yield return new WaitForSeconds(1f);
+            Instantiate(_prefab, _spawnPoints[Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
         }
 
-        currentNumOfEnemy++;
+        AfterSpawn();
+    }
+
+    protected override void AfterSpawn() {
+        base.AfterSpawn();
+        currentNumOfSpawn += 2;
     }
 }

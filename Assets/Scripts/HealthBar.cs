@@ -11,10 +11,10 @@ public class HealthBar : MonoBehaviour {
 
     public void Start() {
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_MAX_HEALTH, OnMaxHealth);
-        EventSystemService.Instance.AddListener(EventConstants.PLAYER_HIT, OnHit);
+        EventSystemService.Instance.AddListener(EventConstants.PLAYER_UPDATE_HEALTH, OnHealthUpdate);
     }
 
-    private void OnHit(object[] data) {
+    private void OnHealthUpdate(object[] data) {
         if (data != null && data.Length > 0 && data[0] is int) {
             SetHealth((int) data[0]);
         }

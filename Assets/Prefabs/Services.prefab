@@ -45,6 +45,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hellSpawn: {fileID: 0}
   _heavenSpawn: {fileID: 0}
+--- !u!1 &1447668859942541674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3769150072055943711}
+  - component: {fileID: 1268943369377636922}
+  m_Layer: 0
+  m_Name: HealthSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3769150072055943711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447668859942541674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7583197406287878675}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268943369377636922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447668859942541674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5d21e429d5a6e46b3eb2661495bff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 6627437098369314014, guid: 995360a0d52deb048a5b7398f275eb47, type: 3}
+  _spawnPoints: []
 --- !u!1 &1916676058929354457
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58aed483c2f452d4490a769fa99c0129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 0}
-  _enemySpawnPoints: []
+  _prefab: {fileID: 1092800566345961370, guid: a1e38ed605d36374185908a6a94926be, type: 3}
+  _spawnPoints: []
 --- !u!1 &2642569988387833396
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +256,7 @@ Transform:
   - {fileID: 6039763670445265760}
   - {fileID: 3307107184064122534}
   - {fileID: 3155998072877801022}
+  - {fileID: 3769150072055943711}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -386,3 +432,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b08a99c8a22d34ab21d310224a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseScreen: {fileID: 0}
+  winScreen: {fileID: 0}
