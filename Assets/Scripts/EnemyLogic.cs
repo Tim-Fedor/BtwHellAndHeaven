@@ -14,6 +14,16 @@ public class EnemyLogic : MonoBehaviour {
 
     void Start() {
         _targetSetter.target = PlayerLocater.PlayerLocation;
+        EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangedWorld);
+    }
+
+    private void OnChangedWorld(object[] data) {
+        if (data != null && data.Length > 0 && data[0] is SwitchController.WorldName.HELL) {
+            _targetSetter.ai.canMove = true;
+        }
+        else {
+            _targetSetter.ai.canMove = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
