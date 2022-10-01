@@ -19,9 +19,18 @@ public class Shooting : MonoBehaviour {
 
     private void Shoot() {
         var bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+        var scale = bullet.transform.localScale;
+        if(_firePoint.parent.localScale.y < 0) {
+            scale.y = scale.y < 0 ? scale.y : -scale.y;
+        }
+        else if(_firePoint.parent.localScale.y > 0){
+            scale.y = scale.y > 0 ? scale.y : -scale.y;
+        }
+        bullet.transform.localScale = scale;
         var rb = bullet.GetComponent<Rigidbody2D>();
         var dir = _firePoint.parent.localScale.y < 0 ? -_firePoint.up : _firePoint.up;
         rb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
 
+        EventSystemService.Instance.DispatchEvent(EventConstants.SHOOT);
     }
 }
