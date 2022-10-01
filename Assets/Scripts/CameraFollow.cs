@@ -10,4 +10,5 @@ public class CameraFollow : MonoBehaviour {
         _playerPos.m_Follow = PlayerLocater.PlayerLocation;
     }
     
+    
 }
