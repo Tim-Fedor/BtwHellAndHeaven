@@ -49,6 +49,7 @@ public class SwitchController : MonoBehaviour
                 Camera.main.backgroundColor = Color.cyan;
                 break;
         }
+        EventSystemService.Instance.DispatchEvent(EventConstants.CHANGED_WORLD, new object[]{world});
     }
 
     public void ChangeWorld() {
