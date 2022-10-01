@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D _rb;
     [SerializeField]
     private Camera _cam;
+    [SerializeField]
+    private Rigidbody2D _gun;
+    [SerializeField]
+    private Transform _body;
 
     private Vector2 _movement;
     private Vector2 _mousePos;
@@ -23,9 +27,20 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate()
     {
         _rb.MovePosition(_rb.position + _movement * movementSpeed * Time.deltaTime);
+        _gun.MovePosition(_rb.position + _movement * movementSpeed * Time.deltaTime);
 
         Vector2 lookDir = _mousePos - _rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        _rb.rotation = angle;
+        _gun.rotation = angle;
+
+        if (_movement.x > 0) {
+            var scale = _body.localScale;
+            scale.x = 1;
+            _body.localScale = scale;
+        } else if (_movement.x < 0) {
+            var scale = _body.localScale;
+            scale.x = -1;
+            _body.localScale = scale;
+        }
     }
 }
