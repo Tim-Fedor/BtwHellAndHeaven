@@ -5,7 +5,6 @@ using UnityEngine;
 public class HealthSpawner : SpawnerBase {
     
     void Start() {
-        currentNumOfSpawn = 1;
         parentWorld = SwitchController.WorldName.HEAVEN;
         EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangeWorld);
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawner : SpawnerBase {
 
     void Start() {
-        currentNumOfSpawn = 5;
         parentWorld = SwitchController.WorldName.HELL;
         EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangeWorld);
         SpawnEntity();

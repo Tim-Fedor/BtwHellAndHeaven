@@ -4845,6 +4845,10 @@ PrefabInstance:
       propertyPath: _cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 811643665580148734, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 811643665580148735, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4889,7 +4893,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7290196054416600272, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7290196054416600272, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
 --- !u!1001 &7583197406607971964
 PrefabInstance:

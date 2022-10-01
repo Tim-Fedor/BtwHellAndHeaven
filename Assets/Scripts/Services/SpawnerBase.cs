@@ -11,7 +11,7 @@ public class SpawnerBase : MonoBehaviour
 
 
     protected SwitchController.WorldName parentWorld;
-    protected int currentNumOfSpawn;
+    public int currentNumOfSpawn;
 
     protected virtual void OnChangeWorld(object[] data) {
         if (data != null && data.Length > 0 && data[0] is SwitchController.WorldName && (SwitchController.WorldName) data[0] == parentWorld) {

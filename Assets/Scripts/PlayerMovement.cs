@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public float movementSpeed = 5f;
+    public SpriteRenderer gun;
     
     [SerializeField]
     private Rigidbody2D _rb;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D _gun;
     [SerializeField]
     private Transform _body;
+    
 
     private Vector2 _movement;
     private Vector2 _mousePos;
@@ -41,6 +43,10 @@ public class PlayerMovement : MonoBehaviour {
             var scale = _body.localScale;
             scale.x = -1;
             _body.localScale = scale;
+        }
+
+        if ((lookDir.x < 0 && gun.transform.localScale.y > 0) || ((lookDir.x > 0) && gun.transform.localScale.y < 0)) {
+            gun.transform.localScale = new Vector3(gun.transform.localScale.x, -gun.transform.localScale.y, gun.transform.localScale.z);
         }
     }
 }

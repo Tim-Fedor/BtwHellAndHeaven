@@ -189,11 +189,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811643665274931696}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.03, y: 0.75, z: 0}
-  m_LocalScale: {x: 0.9781, y: 0.2542, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: 0.03, y: 0.8265, z: 0}
+  m_LocalScale: {x: 0.7878997, y: 0.7878997, z: 0.7878997}
+  m_Children:
+  - {fileID: 811643667355934091}
   m_Father: {fileID: 6124103701097130407}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &811643665274931702
 SpriteRenderer:
@@ -235,7 +236,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d1b2321f0d45d945865d47e744fc7f4, type: 3}
   m_Color: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -350,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 4
+  gun: {fileID: 811643665274931702}
   _rb: {fileID: 811643665580148734}
   _cam: {fileID: 0}
   _gun: {fileID: 7185637836430723466}
@@ -371,7 +373,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -466,11 +468,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811643667355934100}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 1.41, z: 0}
-  m_LocalScale: {x: 0.9781, y: 0.2542, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.59, y: 0.29, z: 0}
+  m_LocalScale: {x: 1.2414014, y: 0.32262984, z: 1.2691972}
   m_Children: []
-  m_Father: {fileID: 6124103701097130407}
+  m_Father: {fileID: 811643665274931703}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8540704056410390741
@@ -501,7 +503,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 811643667355934091}
   - {fileID: 811643665274931703}
   m_Father: {fileID: 811643665580148735}
   m_RootOrder: 2

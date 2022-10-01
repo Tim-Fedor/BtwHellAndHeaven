@@ -20,7 +20,8 @@ public class Shooting : MonoBehaviour {
     private void Shoot() {
         var bullet = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
         var rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(_firePoint.up * bulletForce, ForceMode2D.Impulse);
+        var dir = _firePoint.parent.localScale.y < 0 ? -_firePoint.up : _firePoint.up;
+        rb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
 
     }
 }

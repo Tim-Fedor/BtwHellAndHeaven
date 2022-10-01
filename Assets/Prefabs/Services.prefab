@@ -90,6 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 6627437098369314014, guid: 995360a0d52deb048a5b7398f275eb47, type: 3}
   _spawnPoints: []
+  currentNumOfSpawn: 1
 --- !u!1 &1916676058929354457
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1092800566345961370, guid: a1e38ed605d36374185908a6a94926be, type: 3}
   _spawnPoints: []
+  currentNumOfSpawn: 5
 --- !u!1 &2642569988387833396
 GameObject:
   m_ObjectHideFlags: 0
