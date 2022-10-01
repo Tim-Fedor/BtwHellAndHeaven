@@ -25,7 +25,7 @@ public class PlayerLocater : MonoBehaviour {
 
         return players[0].transform;
     }
-    void Start() {
+    void Awake() {
         _instance = LocatePlayer();
     }
 }

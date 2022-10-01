@@ -5,10 +5,13 @@ using Cinemachine;
 
 public class CameraFollow : MonoBehaviour {
     [SerializeField]
-    private CinemachineVirtualCamera _playerPos;
+    private CinemachineVirtualCamera _virtualCamera;
     void Start() {
-        _playerPos.m_Follow = PlayerLocater.PlayerLocation;
+        _virtualCamera.m_Follow = PlayerLocater.PlayerLocation;
+        EventSystemService.Instance.AddListener(EventConstants.TIMER_UP, TimesUp);
     }
     
-    
+    private void TimesUp(object[] data) {
+        _virtualCamera.ForceCameraPosition(PlayerLocater.PlayerLocation.transform.position, _virtualCamera.transform.rotation);
+    }
 }

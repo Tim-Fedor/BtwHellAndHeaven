@@ -6,8 +6,6 @@ using TMPro;
 public class TimerController : MonoBehaviour {
     public const float maxTimer = 10f;
     [SerializeField]
-    private SwitchController _controller;
-    [SerializeField]
     private TMP_Text _timerText;
 
     private float CurrentTime {
@@ -34,8 +32,8 @@ public class TimerController : MonoBehaviour {
                 CurrentTime -= Time.deltaTime;
             }
             else {
+                EventSystemService.Instance.DispatchEvent(EventConstants.TIMER_UP);
                 CurrentTime = maxTimer;
-                _controller.ChangeWorld();
             }
         }
     }

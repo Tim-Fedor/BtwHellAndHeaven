@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -15,6 +16,10 @@ public class SwitchController : MonoBehaviour
     private Transform _hellSpawn;
     [SerializeField] 
     private Transform _heavenSpawn;
+
+    private void Start() {
+        EventSystemService.Instance.AddListener(EventConstants.TIMER_UP, TimesUp);
+    }
 
 
     public void SwitchWorld(int world) {
@@ -52,5 +57,9 @@ public class SwitchController : MonoBehaviour
                 SwitchWorld(WorldName.HELL);
                 break;
         }
+    }
+
+    private void TimesUp(object[] data) {
+        ChangeWorld();
     }
 }
