@@ -34,15 +34,18 @@ public class SwitchController : MonoBehaviour
     }
     
     public void SwitchWorld(WorldName world) {
+        Vector3 temp;
         switch (world) {
             case WorldName.HELL:
                 CurrentWorld = WorldName.HELL;
-                PlayerLocater.PlayerLocation.position = _hellSpawn.position;
+                temp = new Vector3(_heavenSpawn.position.x - _hellSpawn.position.x,0,0);
+                PlayerLocater.PlayerLocation.position -= temp;
                 Camera.main.backgroundColor = Color.red;
                 break;
             case WorldName.HEAVEN:
                 CurrentWorld = WorldName.HEAVEN;
-                PlayerLocater.PlayerLocation.position = _heavenSpawn.position;
+                temp = new Vector3(_hellSpawn.position.x - _heavenSpawn.position.x,0,0);
+                PlayerLocater.PlayerLocation.position -= temp;
                 Camera.main.backgroundColor = Color.cyan;
                 break;
         }
