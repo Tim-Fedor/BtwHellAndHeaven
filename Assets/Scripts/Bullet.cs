@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     public float timeOfLiving = 5f;
+    public float damage = 5;
     [SerializeField]
     private GameObject _hitEffect;
 
@@ -12,6 +13,9 @@ public class Bullet : MonoBehaviour {
         StartCoroutine(TimeDestroy());
     }
     private void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.TryGetComponent(out IShootable target)) {
+            target.Shoot(damage);
+        }
         DestroyBullet(true);
     }
 
