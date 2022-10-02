@@ -18,16 +18,23 @@ public class ScoreController : MonoBehaviour {
     {
         EventSystemService.Instance.AddListener(EventConstants.KILL_ENEMY, OnUpScore);
         EventSystemService.Instance.AddListener(EventConstants.GAME_OVER, OnLose);
+        EventSystemService.Instance.AddListener(EventConstants.PLAYER_POWER_UP, OnPowerUp);
         UpdateText();
     }
 
     private void OnDestroy() {
         EventSystemService.Instance.RemoveListener(EventConstants.KILL_ENEMY, OnUpScore);
         EventSystemService.Instance.RemoveListener(EventConstants.GAME_OVER, OnLose);
+        EventSystemService.Instance.RemoveListener(EventConstants.PLAYER_POWER_UP, OnPowerUp);
     }
 
     private void OnUpScore(object[] data) {
         Score += 100;
+        UpdateText();
+    }        
+    
+    private void OnPowerUp(object[] data) {
+        Score += 50;
         UpdateText();
     }    
     
