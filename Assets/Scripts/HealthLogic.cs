@@ -12,6 +12,7 @@ public class HealthLogic : MonoBehaviour, IShootable {
     public void Shoot(float damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
+            EventSystemService.Instance.DispatchEvent(EventConstants.KILL_ENEMY);
             Destroy(gameObject);
         }
     }

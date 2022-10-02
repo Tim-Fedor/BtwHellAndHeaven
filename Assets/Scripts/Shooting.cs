@@ -9,9 +9,24 @@ public class Shooting : MonoBehaviour {
     private Transform _firePoint;
     [SerializeField] 
     private GameObject _bulletPrefab;
+
+    private bool _canFire = true;
+    
+    void Start()
+    {
+        EventSystemService.Instance.AddListener(EventConstants.GAME_OVER, OnLose);
+    }
+
+    private void OnLose(object[] data) {
+        _canFire = false;
+    }
     
     private void Update()
     {
+        if (!_canFire) {
+            return;
+        }
+        
         if (Input.GetButtonDown("Fire1")) {
             Shoot();
         }    

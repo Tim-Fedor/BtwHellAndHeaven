@@ -11,6 +11,7 @@ public class PlayerLogic : MonoBehaviour {
     public Sprite red;
     void Start() {
         currentHealth = maxHealth;
+        Debug.Log("Workeeed 2");
         EventSystemService.Instance.DispatchEvent(EventConstants.PLAYER_MAX_HEALTH, new object[]{maxHealth});
     }
 

@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour {
     public Gradient gradient;
     public Image fill;
 
-    public void Start() {
+    public void Awake() {
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_MAX_HEALTH, OnMaxHealth);
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_UPDATE_HEALTH, OnHealthUpdate);
     }
@@ -29,7 +29,7 @@ public class HealthBar : MonoBehaviour {
     private void SetMaxHealth(int health) {
         slider.maxValue = health;
         slider.value = health;
-
+        Debug.Log("Workeeed 1");
         fill.color = gradient.Evaluate(1f);
     }
 

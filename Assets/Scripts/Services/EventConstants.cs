@@ -8,4 +8,5 @@ public static class EventConstants
     public static string PLAYER_POWER_UP = "PlayerPowerUp";
     public static string GAME_OVER = "GameOver";
     public static string SHOOT = "Shoot";
+    public static string KILL_ENEMY = "EnemyKilled";
 }

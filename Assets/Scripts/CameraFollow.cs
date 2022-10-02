@@ -12,6 +12,10 @@ public class CameraFollow : MonoBehaviour {
     }
     
     private void TimesUp(object[] data) {
-        _virtualCamera.ForceCameraPosition(PlayerLocater.PlayerLocation.transform.position, _virtualCamera.transform.rotation);
+        _virtualCamera.gameObject.SetActive(false);
+        _virtualCamera.PreviousStateIsValid = false;
+        _virtualCamera.transform.position = PlayerLocater.PlayerLocation.transform.position;
+        _virtualCamera.gameObject.SetActive(true);
+        //_virtualCamera.ForceCameraPosition(PlayerLocater.PlayerLocation.transform.position, _virtualCamera.transform.rotation);
     }
 }
