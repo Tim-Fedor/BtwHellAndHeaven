@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
-    public void RestartGame()
-    {
-        
+    public void RestartGame() {
+        SceneManager.LoadScene("Level1");
     }
 
 
