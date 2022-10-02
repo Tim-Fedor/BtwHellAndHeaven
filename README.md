@@ -1,2 +1,2 @@
-# BtwHellAndHeaven
-Ludum Dare 51 project
+# Beetwen Hell And Heaven
+Ludum Dare 51 game
