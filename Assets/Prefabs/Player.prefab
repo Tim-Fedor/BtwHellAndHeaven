@@ -410,6 +410,7 @@ MonoBehaviour:
   full: {fileID: 21300000, guid: bd27d043dd39c384eb84fd255b5d607f, type: 3}
   yellow: {fileID: 21300000, guid: 20a2fee452fe6564c83e86a6bd9030eb, type: 3}
   red: {fileID: 21300000, guid: f884fb1b2e0f5d8469b76fcc9635c926, type: 3}
+  anim: {fileID: 8465367113246532740}
 --- !u!70 &4891079918228029506
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

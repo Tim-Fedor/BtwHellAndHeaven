@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     public float timeOfLiving = 5f;
-    public float damage = 5;
+    public static float damage = 5;
     [SerializeField]
     private GameObject _hitEffect;
 

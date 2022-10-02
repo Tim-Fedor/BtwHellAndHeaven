@@ -20,9 +20,7 @@ public class SpawnerBase : MonoBehaviour
     }
 
     protected virtual void SpawnEntity() {
-        Debug.Log($"Wtf is here, worild is {parentWorld.ToString()}");
         for (int i = 0; i < currentNumOfSpawn; i++) {
-            Debug.Log("Wtf is here 1");
             Instantiate(_prefab, _spawnPoints[Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
         }
 

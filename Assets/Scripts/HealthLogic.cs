@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthLogic : MonoBehaviour, IShootable {
-    public float maxHealth;
+    public float maxHealth = 20f;
     public float currentHealth;
+    public Animator anim;
 
     private void Start() {
         currentHealth = maxHealth;
@@ -15,5 +16,9 @@ public class HealthLogic : MonoBehaviour, IShootable {
             EventSystemService.Instance.DispatchEvent(EventConstants.KILL_ENEMY);
             Destroy(gameObject);
         }
+        else {
+            anim.Play("Hit");
+        }
     }
+    
 }

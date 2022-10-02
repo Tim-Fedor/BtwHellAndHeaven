@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class HealthSpawner : SpawnerBase {
+public class AttackUpSpawner : SpawnerBase {
     
     void Start() {
+        Bullet.damage = 5;
         parentWorld = SwitchController.WorldName.HEAVEN;
         EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangeWorld);
     }
@@ -16,20 +17,15 @@ public class HealthSpawner : SpawnerBase {
     }
     
     protected override void SpawnEntity() {
+        if (Random.Range(0, 100) >= 20) {
+            return;
+        }
+        
         for (int i = 0; i < currentNumOfSpawn; i++) {
-            if (Random.Range(0, 100) >= 90) {
-                continue;
-            }
             Instantiate(_prefab, _spawnPoints[Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
         }
 
         AfterSpawn();
     }
-
-    protected override void AfterSpawn() {
-        base.AfterSpawn();
-        if (Random.Range(0, 3) == 2) {
-            currentNumOfSpawn++;
-        }
-    }
+    
 }
