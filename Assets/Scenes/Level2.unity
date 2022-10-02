@@ -17516,6 +17516,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 811643665580148732, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
+      propertyPath: delayForSpray
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 811643665580148733, guid: f60f8a4e2b1d12b4cb7cc5f241a3eb27, type: 3}
       propertyPath: _cam
       value: 

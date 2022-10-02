@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour {
     
     public float bulletForce = 20f;
+    public float delayForSpray = 0.1f;
     [SerializeField]
     private Transform _firePoint;
     [SerializeField] 
@@ -31,10 +32,24 @@ public class Shooting : MonoBehaviour {
         if (!_canFire) {
             return;
         }
-        
-        if (Input.GetButtonDown("Fire1")) {
-            Shoot();
-        }    
+
+        if (GameController.IsPressFireMode) {
+            if (Input.GetButton("Fire1")) {
+                StartCoroutine(ShootWithDelay());
+            }
+        }
+        else {
+            if (Input.GetButtonDown("Fire1")) {
+                Shoot();
+            }
+        }
+    }
+
+    private IEnumerator ShootWithDelay() {
+        _canFire = false;
+        Shoot();
+        yield return new WaitForSeconds(delayForSpray);
+        _canFire = true;
     }
 
     private void Shoot() {

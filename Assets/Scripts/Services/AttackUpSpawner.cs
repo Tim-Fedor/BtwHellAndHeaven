@@ -17,7 +17,7 @@ public class AttackUpSpawner : SpawnerBase {
     }
     
     protected override void SpawnEntity() {
-        if (Random.Range(0, 100) >= 20) {
+        if (Random.Range(0, 100) >= 15) {
             return;
         }
         
