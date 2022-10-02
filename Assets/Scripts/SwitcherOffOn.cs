@@ -8,11 +8,11 @@ public class SwitcherOffOn : MonoBehaviour {
     public Sprite on;
     public Sprite off;
 
-    private bool enabled = true;
+    private bool isEnabled = true;
 
     public void Switch() {
-        img.sprite = enabled ? off : on;
-        enabled = !enabled;
+        img.sprite = isEnabled ? off : on;
+        isEnabled = !isEnabled;
     }
 
 }
