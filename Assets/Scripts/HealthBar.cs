@@ -9,9 +9,14 @@ public class HealthBar : MonoBehaviour {
     public Gradient gradient;
     public Image fill;
 
-    public void Awake() {
+    private void Awake() {
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_MAX_HEALTH, OnMaxHealth);
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_UPDATE_HEALTH, OnHealthUpdate);
+    }
+
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.PLAYER_MAX_HEALTH, OnMaxHealth);
+        EventSystemService.Instance.RemoveListener(EventConstants.PLAYER_UPDATE_HEALTH, OnHealthUpdate);
     }
 
     private void OnHealthUpdate(object[] data) {

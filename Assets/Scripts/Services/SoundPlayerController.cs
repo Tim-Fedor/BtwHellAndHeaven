@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,12 @@ public class SoundPlayerController : MonoBehaviour {
         EventSystemService.Instance.AddListener(EventConstants.SHOOT, OnShoot);
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_HIT, OnHit);
         EventSystemService.Instance.AddListener(EventConstants.PLAYER_POWER_UP, OnPowerUp);
+    }
+
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.SHOOT, OnShoot);
+        EventSystemService.Instance.RemoveListener(EventConstants.PLAYER_HIT, OnHit);
+        EventSystemService.Instance.RemoveListener(EventConstants.PLAYER_POWER_UP, OnPowerUp);
     }
 
     private void OnShoot(object[] data) {

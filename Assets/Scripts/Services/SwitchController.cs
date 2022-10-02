@@ -21,6 +21,10 @@ public class SwitchController : MonoBehaviour
         EventSystemService.Instance.AddListener(EventConstants.TIMER_UP, TimesUp);
     }
 
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.TIMER_UP, TimesUp);
+    }
+
 
     public void SwitchWorld(int world) {
         switch (world) {

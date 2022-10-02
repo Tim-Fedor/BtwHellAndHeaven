@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
-    public void RestartGame() {
+    public void StartGame() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Level1");
     }
 
-
+    public void ToMenu() {
+        SceneManager.LoadScene("Menu");
+    }
 }

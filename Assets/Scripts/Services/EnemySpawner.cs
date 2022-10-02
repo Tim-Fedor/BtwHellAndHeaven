@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : SpawnerBase {
 
@@ -8,6 +10,10 @@ public class EnemySpawner : SpawnerBase {
         parentWorld = SwitchController.WorldName.HELL;
         EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangeWorld);
         SpawnEntity();
+    }
+
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.CHANGED_WORLD, OnChangeWorld);
     }
 
     protected override void SpawnEntity() {

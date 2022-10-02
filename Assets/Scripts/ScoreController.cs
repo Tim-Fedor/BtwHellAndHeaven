@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,11 @@ public class ScoreController : MonoBehaviour {
         EventSystemService.Instance.AddListener(EventConstants.KILL_ENEMY, OnUpScore);
         EventSystemService.Instance.AddListener(EventConstants.GAME_OVER, OnLose);
         UpdateText();
+    }
+
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.KILL_ENEMY, OnUpScore);
+        EventSystemService.Instance.RemoveListener(EventConstants.GAME_OVER, OnLose);
     }
 
     private void OnUpScore(object[] data) {

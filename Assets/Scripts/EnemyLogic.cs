@@ -17,6 +17,10 @@ public class EnemyLogic : MonoBehaviour {
         EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChangedWorld);
     }
 
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.CHANGED_WORLD, OnChangedWorld);
+    }
+
     private void OnChangedWorld(object[] data) {
         if (data != null && data.Length > 0 && data[0] is SwitchController.WorldName.HELL) {
             _targetSetter.ai.canMove = true;

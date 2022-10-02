@@ -16,6 +16,11 @@ public class Shooting : MonoBehaviour {
     {
         EventSystemService.Instance.AddListener(EventConstants.GAME_OVER, OnLose);
     }
+    
+    void OnDestroy()
+    {
+        EventSystemService.Instance.RemoveListener(EventConstants.GAME_OVER, OnLose);
+    }
 
     private void OnLose(object[] data) {
         _canFire = false;

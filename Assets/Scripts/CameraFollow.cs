@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,11 @@ public class CameraFollow : MonoBehaviour {
         _virtualCamera.m_Follow = PlayerLocater.PlayerLocation;
         EventSystemService.Instance.AddListener(EventConstants.TIMER_UP, TimesUp);
     }
-    
+
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.TIMER_UP, TimesUp);
+    }
+
     private void TimesUp(object[] data) {
         _virtualCamera.gameObject.SetActive(false);
         _virtualCamera.PreviousStateIsValid = false;

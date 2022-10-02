@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,10 @@ public class MusicPlayerController : MonoBehaviour {
     {
         hellMusic.Play();
         EventSystemService.Instance.AddListener(EventConstants.CHANGED_WORLD, OnChange);
+    }
+
+    private void OnDestroy() {
+        EventSystemService.Instance.RemoveListener(EventConstants.CHANGED_WORLD, OnChange);
     }
 
     private void OnChange(object[] data) {
